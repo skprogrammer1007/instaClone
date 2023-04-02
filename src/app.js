@@ -16,7 +16,8 @@ mongoose
   .then(() => {
     console.log("Connected to DB");
   })
-  .catch(() => {
+  .catch((err) => {
+    console.log(err);
     console.log("Cannot be connected to DB");
   });
 
