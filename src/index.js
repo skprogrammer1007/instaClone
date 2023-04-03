@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv")
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/", routers);
 app.use("/data",(req,res)=>{res.send('server started')})
 mongoose
-  .connect(process.env.DB_URL||'mongodb+srv://pnaman142:pnaman142@cluster0.wjbufkj.mongodb.net/' + process.env.DB_NAME)
+  .connect('mongodb+srv://pnaman142:pnaman142@cluster0.wjbufkj.mongodb.net/' + "InstaCloneByNaman")
   .then(() => {
     console.log("Connected to DB");
   })
@@ -22,7 +22,7 @@ mongoose
   });
 
 app.listen(process.env.PORT||5000, () => {
-  console.log("Server connected and running on the port ", process.env.PORT);
+  console.log("Server connected and running on the port ", process.env.PORT||5000);
 });
 
 // module.exports = app;
