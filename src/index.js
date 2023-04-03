@@ -9,8 +9,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/", routers);
-
+// app.use("/", routers);
+app.use("/",(req,res)=>{res.send('server started')})
 mongoose
   .connect(process.env.DB_URL + process.env.DB_NAME)
   .then(() => {
@@ -25,4 +25,4 @@ app.listen(process.env.PORT, () => {
   console.log("Server connected and running on the port ", process.env.PORT);
 });
 
-module.exports = app;
+// module.exports = app;
