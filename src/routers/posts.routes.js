@@ -9,7 +9,7 @@ const fileStorage = new GridFsStorage({
     url : process.env.DB_URL+process.env.DB_NAME,
     file : (req, file) => {
         return {
-            bucketName : process.env.DB_COLLECTION,
+            bucketName : process.env.DB_COLLECTION||"posts",
             filename : `${Date.now()}_${file.originalname}`
         }
     }

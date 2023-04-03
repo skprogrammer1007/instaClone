@@ -38,7 +38,7 @@ exportRoutes.load = async function(req, res){
         await client.connect();
         const db = client.db(process.env.DB_NAME);
         const collection = new GridFSBucket(db, {
-            bucketName : process.env.DB_COLLECTION
+            bucketName : process.env.DB_COLLECTION||"posts"
         });
         const loadImage = collection.openDownloadStreamByName(req.params.name);
         loadImage.on("data", data => res.status(200).write(data));
